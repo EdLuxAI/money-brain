@@ -53,15 +53,42 @@
 
 ## 安装
 
-### 方法一：直接安装 .skill 文件
+### Claude.ai（网页版）
+
+**方法一：直接安装 .skill 文件**
 1. 下载 [Releases](../../releases) 中的 `money-brain.skill` 文件
 2. 在 Claude.ai 中打开设置
 3. 找到 Skills 部分，上传 .skill 文件
 
-### 方法二：手动添加
+**方法二：手动添加**
 1. 复制 `money-brain/SKILL.md` 的内容
 2. 在 Claude.ai 中创建一个新的 Skill
 3. 粘贴内容
+
+### Claude Code（CLI）
+
+**全局安装（所有项目生效）：**
+```bash
+# 创建 skill 目录
+mkdir -p ~/.claude/skills/money-brain
+
+# 下载 SKILL.md（二选一）
+# 方式 A：克隆后复制
+git clone https://github.com/EdLuxAI/money-brain.git
+cp money-brain/money-brain/SKILL.md ~/.claude/skills/money-brain/
+
+# 方式 B：直接下载
+curl -o ~/.claude/skills/money-brain/SKILL.md \
+  https://raw.githubusercontent.com/EdLuxAI/money-brain/main/money-brain/SKILL.md
+```
+
+**项目级安装（仅当前项目生效）：**
+```bash
+mkdir -p .claude/skills/money-brain
+cp /path/to/SKILL.md .claude/skills/money-brain/
+```
+
+安装后无需重启，Claude Code 会自动发现并加载 skill。
 
 ## 使用方式
 
